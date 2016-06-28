@@ -4,7 +4,7 @@
 #
 Name     : oauth2client
 Version  : 2.0.2
-Release  : 5
+Release  : 6
 URL      : https://pypi.python.org/packages/source/o/oauth2client/oauth2client-2.0.2.tar.gz
 Source0  : https://pypi.python.org/packages/source/o/oauth2client/oauth2client-2.0.2.tar.gz
 Summary  : OAuth 2.0 client library

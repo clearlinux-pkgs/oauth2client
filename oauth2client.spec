@@ -4,7 +4,7 @@
 #
 Name     : oauth2client
 Version  : 4.0.0
-Release  : 10
+Release  : 11
 URL      : http://pypi.debian.net/oauth2client/oauth2client-4.0.0.tar.gz
 Source0  : http://pypi.debian.net/oauth2client/oauth2client-4.0.0.tar.gz
 Summary  : OAuth 2.0 client library

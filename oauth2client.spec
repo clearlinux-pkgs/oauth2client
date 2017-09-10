@@ -4,12 +4,13 @@
 #
 Name     : oauth2client
 Version  : 4.1.2
-Release  : 15
+Release  : 16
 URL      : http://pypi.debian.net/oauth2client/oauth2client-4.1.2.tar.gz
 Source0  : http://pypi.debian.net/oauth2client/oauth2client-4.1.2.tar.gz
 Summary  : OAuth 2.0 client library
 Group    : Development/Tools
 License  : Apache-2.0
+Requires: oauth2client-legacypython
 Requires: oauth2client-python
 Requires: httplib2
 Requires: pyasn1
@@ -28,13 +29,20 @@ BuildRequires : setuptools
 BuildRequires : six
 
 %description
-[![Build Status](https://travis-ci.org/google/oauth2client.svg?branch=master)](https://travis-ci.org/google/oauth2client)
-[![Coverage Status](https://coveralls.io/repos/google/oauth2client/badge.svg?branch=master&service=github)](https://coveralls.io/github/google/oauth2client?branch=master)
-[![Documentation Status](https://readthedocs.org/projects/oauth2client/badge/?version=latest)](https://oauth2client.readthedocs.io/)
+oauth2client is a client library for OAuth 2.0.
+
+%package legacypython
+Summary: legacypython components for the oauth2client package.
+Group: Default
+
+%description legacypython
+legacypython components for the oauth2client package.
+
 
 %package python
 Summary: python components for the oauth2client package.
 Group: Default
+Requires: oauth2client-legacypython
 
 %description python
 python components for the oauth2client package.
@@ -48,12 +56,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1499271856
+export SOURCE_DATE_EPOCH=1505007958
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1499271856
+export SOURCE_DATE_EPOCH=1505007958
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -64,7 +72,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*

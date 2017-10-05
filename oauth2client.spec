@@ -4,7 +4,7 @@
 #
 Name     : oauth2client
 Version  : 4.1.2
-Release  : 17
+Release  : 18
 URL      : http://pypi.debian.net/oauth2client/oauth2client-4.1.2.tar.gz
 Source0  : http://pypi.debian.net/oauth2client/oauth2client-4.1.2.tar.gz
 Summary  : OAuth 2.0 client library
@@ -68,12 +68,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507161476
+export SOURCE_DATE_EPOCH=1507163383
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1507161476
+export SOURCE_DATE_EPOCH=1507163383
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force

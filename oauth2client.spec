@@ -22,7 +22,7 @@ BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : pyasn1
 BuildRequires : pyasn1-modules
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : rsa
 BuildRequires : setuptools

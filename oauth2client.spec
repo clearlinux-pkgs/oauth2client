@@ -4,15 +4,15 @@
 #
 Name     : oauth2client
 Version  : 4.1.3
-Release  : 33
+Release  : 34
 URL      : https://files.pythonhosted.org/packages/a6/7b/17244b1083e8e604bf154cf9b716aecd6388acd656dd01893d0d244c94d9/oauth2client-4.1.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a6/7b/17244b1083e8e604bf154cf9b716aecd6388acd656dd01893d0d244c94d9/oauth2client-4.1.3.tar.gz
 Summary  : OAuth 2.0 client library
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: oauth2client-python3
-Requires: oauth2client-license
-Requires: oauth2client-python
+Requires: oauth2client-license = %{version}-%{release}
+Requires: oauth2client-python = %{version}-%{release}
+Requires: oauth2client-python3 = %{version}-%{release}
 Requires: httplib2
 Requires: pyasn1
 Requires: pyasn1-modules
@@ -39,7 +39,7 @@ license components for the oauth2client package.
 %package python
 Summary: python components for the oauth2client package.
 Group: Default
-Requires: oauth2client-python3
+Requires: oauth2client-python3 = %{version}-%{release}
 
 %description python
 python components for the oauth2client package.
@@ -62,14 +62,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536500499
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1546109117
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/oauth2client
-cp LICENSE %{buildroot}/usr/share/doc/oauth2client/LICENSE
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/oauth2client
+cp LICENSE %{buildroot}/usr/share/package-licenses/oauth2client/LICENSE
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -78,8 +79,8 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/oauth2client/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/oauth2client/LICENSE
 
 %files python
 %defattr(-,root,root,-)

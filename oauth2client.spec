@@ -4,7 +4,7 @@
 #
 Name     : oauth2client
 Version  : 4.1.3
-Release  : 35
+Release  : 36
 URL      : https://files.pythonhosted.org/packages/a6/7b/17244b1083e8e604bf154cf9b716aecd6388acd656dd01893d0d244c94d9/oauth2client-4.1.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a6/7b/17244b1083e8e604bf154cf9b716aecd6388acd656dd01893d0d244c94d9/oauth2client-4.1.3.tar.gz
 Summary  : OAuth 2.0 client library

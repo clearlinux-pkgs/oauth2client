@@ -1,6 +1,5 @@
 # This file contains recursive sources that require this package
 certbot
-cinder
 gcs-oauth2-boto-plugin
 google-apitools
 google-reauth

@@ -3,4 +3,3 @@ certbot
 gcs-oauth2-boto-plugin
 google-apitools
 google-reauth
-gsutil
